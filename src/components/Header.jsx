@@ -1,4 +1,6 @@
 import React, { useState, useContext } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import menuIcon from '@icons/icon_menu.svg'
 import Menu from 'components/Menu'
 import shoppingCartIcon from '@icons/icon_shopping_cart.svg'
@@ -17,42 +19,48 @@ const Header = () => {
   }
   return (
     <nav className={styles.Nav}>
-      <img src={menuIcon} alt="menu" className="menu" />
-      <div className="navbar-left">
-        <img src={logo} alt="logo" className="nav-logo" />
+      <Image src={menuIcon} alt="menu" className={styles['menu-burguer']} />
+      <div className={styles['navbar-left']}>
+        <Link href="/">
+          <Image src={logo} alt="logo" className={styles['nav-logo']} />
+        </Link>
         <ul>
           <li>
-            <a href="/">All</a>
+            <Link href="/">Linkll</Link>
           </li>
           <li>
-            <a href="/">Clothes</a>
+            <Link href="/">Clothes</Link>
           </li>
           <li>
-            <a href="/">Electronics</a>
+            <Link href="/">Electronics</Link>
           </li>
           <li>
-            <a href="/">Furnitures</a>
+            <Link href="/">Furnitures</Link>
           </li>
           <li>
-            <a href="/">Toys</a>
+            <Link href="/">Toys</Link>
           </li>
           <li>
-            <a href="/">Others</a>
+            <Link href="/">Others</Link>
           </li>
         </ul>
       </div>
-      <div className="navbar-right">
+      <div className={styles['navbar-right']}>
         <ul>
-          <li className="navbar-email" onClick={handleToggle}>
-            mail@example.com
+          <li className={styles['navbar-email']}>
+            <span role="menu" onClick={handleToggle} onKeyDown={() => {}} tabIndex="0">
+              mail@example.com
+            </span>
           </li>
-          <li
-            className="navbar-shopping-cart"
-            onClick={() => {
-              setToggleOrder(!toggleOrders)
-            }}
-          >
-            <img src={shoppingCartIcon} alt="shopping cart" />
+          <li className={styles['navbar-shopping-cart']}>
+            <Image
+              src={shoppingCartIcon}
+              alt="shopping cart"
+              onClick={() => {
+                setToggleOrder(!toggleOrders)
+              }}
+              onKeyDown={() => {}}
+            />
             {state.cart.length > 0 ? <div>{state.cart.length}</div> : null}
           </li>
         </ul>

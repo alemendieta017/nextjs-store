@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import OrderItem from '../components/OrderItem'
 import styles from 'styles/MyOrder.module.scss'
 import arrow from '@icons/flechita.svg'
@@ -16,7 +18,7 @@ const MyOrder = () => {
   return (
     <aside className={styles.MyOrder}>
       <div className="title-container">
-        <img src={arrow} alt="arrow" />
+        <Image src={arrow} alt="arrow" />
         <p className="title">My order</p>
       </div>
       <div className="my-order-content">
@@ -29,7 +31,9 @@ const MyOrder = () => {
           </p>
           <p>${sumTotal()}</p>
         </div>
-        <button className="primary-button">Checkout</button>
+        <Link href="/checkout" className="primary-button">
+          Checkout
+        </Link>
       </div>
     </aside>
   )

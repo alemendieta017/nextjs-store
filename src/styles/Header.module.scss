@@ -6,7 +6,7 @@
   padding: 0 24px;
   border-bottom: 1px solid $--very-light-pink;
 }
-.menu {
+.menu-burguer {
   display: none;
 }
 .nav-logo {
@@ -63,7 +63,7 @@
   align-items: center;
 }
 @media (max-width: 640px) {
-  .menu {
+  .menu-burguer {
     display: block;
   }
   .navbar-left ul {

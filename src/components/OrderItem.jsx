@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import Image from 'next/image'
 import AppContext from '../context/appContext'
 import styles from 'styles/OrderItem.module.scss'
 import cart from '@icons/icon_close.png'
@@ -13,11 +14,11 @@ const OrderItem = ({ product }) => {
   return (
     <div className={styles.OrderItem}>
       <figure>
-        <img src={product.images[0]} alt={product.title} />
+        <Image src={product?.images[0]} alt={product?.title} />
       </figure>
-      <p>{product.title}</p>
-      <p>{product.price}</p>
-      <img
+      <p>{product?.title}</p>
+      <p>{product?.price}</p>
+      <Image
         src={cart}
         alt="close"
         onClick={() => {
